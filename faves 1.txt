@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title> My Favorite Things </title>
+<head>
+
+<body style="color: #0000FF; background-color: #7b7b7b;">
+    <h1> Soccer </h1>
+    <h2> Daniel Aguilar Gonzalez </h2>
+    <h3><ol>
+        <li>Rice and beans</li>
+        <li>Paella</li>
+        <li>Escargo</li>
+        <li>Asparagus</li>
+        <li>Friut salad<ul><li>Strawberries, Pineapple, Bananas, Blueberries, Apples</li></ul></li>
+        <li>Brwonies</li>
+    </ol></h3>
+</html>
