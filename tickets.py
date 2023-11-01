@@ -1,5 +1,5 @@
 # Name: Daniel Aguilar 
-# Prog Purpose: This program finds the cost of movie tickets
+# Prog Purpose: This program finds the cost of movie tickets.
 #   Price for one ticket: $10.99
 #   Price of popcorn: $8.99
 #   Price of a drink: $4.99
