@@ -1,4 +1,4 @@
-# Name: Felix Barrientos
+# Name: Daniel Aguilar and Felix Barrientos
 # Program Purpose: This program allows (nonexistent) customers to order from, the nonexistent, Palermo's Pizza
 # Palermo's Pizza
 import datetime
