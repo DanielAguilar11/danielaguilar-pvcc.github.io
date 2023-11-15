@@ -8,7 +8,7 @@
             <title> Chapter 5: Programming Algorithms & Software Testing </title>
     </head>
  
- <body style="background-image: url(wallpaperprogramming.jpg); font-family: Arial, Helvetica, sans-serif;">
+ <body style="background-image: url(); font-family: Arial, Helvetica, sans-serif;">
     
     <style>
     
@@ -19,7 +19,7 @@
     
     </style>
     
-    <table border = "2" style ="width:40%; color:rgb(255, 255, 255); background-color: #77ce15 ;margin:auto;">
+    <table border = "2" style ="width:40%; color:rgb(255, 255, 255); background-color: #7e7e7e ;margin:auto;">
     <tr style = "background-color: rgb(209, 209, 209);">
         <td><a href="index.html"><b> Home </b></a></td>
         <td><a href="https://www.pvcc.edu"><b> PVCC </b></a></td>
@@ -31,9 +31,9 @@
     <tr> <td colspan="5" > <ul> 
    
 
-   <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;"> Chapter 5: Programming Algorithms & Software Testing  </h1>
+   <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;"> Chapter: 5 Programming Algorithms & Software Testing  </h1>
 
-   <h2> Phases of computer program development: </h2>
+   <h2 style="font-family: 'Courier New', Courier, monospace;"> Phases of computer program development: </h2>
    <ul>
       <li><h3> Phase 1: Understand the problem </h3></li>
       <li><h3> Phase 2: Design an algorithm to solve the problem </h3></li>
@@ -43,98 +43,32 @@
    </ul>
    <h2> Programming structures:</h2>
    <ul>
-        <li><h3> Sequential structure: Top-down-execution </h3></li>
-        <li><h3> Decision structures: if/then/else </h3></li>
-        <li><h3> Iterative (Looping): </h3></li>
-    <ul>
-            <li><h4> While loop: continue looping as long something is true </h4></li>
-            <li><h4> Repeat/until loop: continue looping until something is true </h4></li>
-            <li><h4> For loop: loop a given number of times </h4></li>
-    </ul>
-        <li><h3> Recursive structures: </h3></li>
-            <li><h4> Repeat a set of instructions as a subtask of itself </h4></li>
-            <li><h4> Repetition continues until: </h4></li>
-        <ul>
-                <li><h5> Degenerative case, which is a termination condition, is met (degenerative case is also called a "base case") </h5></li>
-        </ul>
+      <li><h3> Sequential structure: Top-down-execution </h3></li>
+      <li><h3> Decision structures: if/then/else </h3></li>
+      <li><h3> Iterative (Looping): </h3></li>
+      <ul>
+         <li><h4> While loop: continue looping as long something is true </h4></li>
+         <li><h4> Repeat/until loop: continue looping until something is true </h4></li>
+         <li><h4> For loop: loop a given number of times </h4></li>
+      </ul>
+      <li><h3> Recursive structures: </h3></li>
+         <li><h4> Repeat a set of instructions as a subtask of itself </h4></li>
+         <li><h4> Repetition continues until: </h4></li>
+         <ul>
+            <li><h5> Degenerative case, which is a termination condition, is met (degenerative case is also called a "base case") </h5></li>
+         </ul>
    </ul>
    <h2> Two classic programming/database problems: </h2>
-    <ul>
-        <li><h3> Sorting: Descending order/Ascending order </h3></li>
-        <ul>
-            <li><h4> Sorting numbers </h4></li>
-            <li><h4> Sorting strings (in accordance with ASCII values) </h4></li>
-        </ul>
-        <li><h3> Searching: find specific data that meet a certain criteria </h3></li>
-            <li><h4> In database: </h4></li>
-            <ul>
-                <li><h5> Filters: temporary search </h5></li>
-                <li><h5> Queries: search criteria are saved so they don't have to be recreated </h5></li>
-            </ul>
-        <li><h3> Two popular search techniques: </h3></li>
-        <ul>
-            <li><h4> Sequential search: search from top to bottom or bottom to top, one item at a time </h4></li> 
-            <li><h4> Binary search: </h4></li> 
-            <ul>
-                <li><h5> Only works if data is SORTED first </h5></li>
-                <li><h5> Start in the middle, then go to half of that, etc.</h5></li>
-            </ul>
-        </ul>
-    </ul>
-    <h2> Two classic program goals:</h2>
-    <ul>
-        <li><h3> Efficiency: Program takes minimal time and/or resources </h3></li>
-        <li><h3> Correctness: Program runs in expected ways and works for all expected conditions </h3></li>
-    </ul>
-    <h2> Software testing and verification </h2>
-        <ul>
-            <li><h3> Kinds of tests: </h3></li>
-            <ul>
-                <li><h4> Acceptance testing: Verifying whether the whole system works as intended. </h4></li>
-                <li><h4> Integration testing: Ensuring that software components or functions operate together. </h4></li>
-                <li><h4> Unit testing: Validating that each software unit performs as expected. A unit is the 
-                    smallest testable component of an application. </h4></li>
-                <li><h4> Functional testing: Checking functions by emulating business scenarios, based on functional 
-                    requirements. Black-box testing is a common way to verify functions. </h4></li>
-                <li><h4> Performance testing: Testing how the software performs under different workloads. Load testing, for 
-                    example, is used to evaluate performance under real-life load conditions. </h4></li>
-                <li><h4> Regression testing: Checking whether new features break or degrade functionality. Sanity testing can be 
-                    used to verify menus, functions and commands at the surface level, when there is no time for a full regression test. </h4></li>
-                <li><h4> Stress testing: Testing how much strain the system can take before it fails. Considered to be a type of 
-                    non-functional testing.</h4></li>
-                <li><h4> Usability testing: Validating how well a customer can use a system or web application to complete a task. </h4></li>
-            </ul>
-            <li><h3> Software testing is done to detect: </h3></li>
-            <ul>
-                <li><h4> Architectural flaws </h4></li>
-                <li><h4> Poor design decisions </h4></li>
-                <li><h4> Invalid or incorrect functionality </h4></li>
-                <li><h4> Security vulnerabilities </h4></li>
-                <li><h4> Scalability issues </h4></li>
-            </ul>
-            <li><h3> Testing best practices: </h3></li>
-            <ul>
-                <li><h4> Continous testing: Project teams test each build as it becomes available. This type of software testing relies on 
-                    test automation that is integrated with the deployment process. It enables software to be validated in realistic test 
-                    environments earlier in the process - improving design and reducing risks. </h4></li>
-                <li><h4> Configuration management: Organizations centrally maintain test assets and track what software builds to test. 
-                    Teams gain access to assets such as code, requirements, design documents, models, test scripts and test results. 
-                    Good systems include user authentication and audit trails to help teams meet compliance requirements with minimal 
-                    administrative effort. </h4></li>
-                <li><h4> Service virtualization: Testing environments may not be available, especially early in code development. 
-                    Service virtualization simulates the services and systems that are missing or not yet completed, enabling teams to reduce 
-                    dependencies and test sooner. They can reuse, deploy and change a configuration to test different scenarios without having 
-                    to modify the original environment. </h4></li>
-                <li><h4>  Defect or "bug tracking": Monitoring defects is important to both testing and development teams for 
-                    measuring and improving quality. Automated tools allow teams to track defects, measure their scope and impact, 
-                    and uncover related issues.</h4></li>
-                <li><h4> Metrics and reporting: Reporting and analytics enable team members to share status, goals and test results. 
-                    Advanced tools integrate project metrics and present results in a dashboard. Teams quickly see the overall health of a 
-                    project and can monitor relationships between test, development and other project elements. </h4></li>
-            </ul>
-            <li><a href="https://www.ibm.com/topics/software-testing"> What is software testing? </a></li> 
-        </ul>
-    </ul>
+      Sorting: Descending order/Ascending order
+      Sorting numbers
+      Sorting strings (in accordance with ASCII values) Searching: find specific data that meet a certain criteria In database:
+      Filters: temporary search
+      Queries: search criteria are saved so they don't have to be recreated Two popular search techniques:
+      Sequential search: search from top to bottom or bottom to top, one item at a time Binary search: only works if data is SORTED first
+      start in the middle, then go to half of that, etc.
+   <h3> Two classic program goals:</h3>
+      Efficiency: Program takes minimal time and/or resources
+      Correctness: Program runs in expected ways and works for all expected conditions
     </ul> </td> </tr> </table>
     </body>
     </html>
