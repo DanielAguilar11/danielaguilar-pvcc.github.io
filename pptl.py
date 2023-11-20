@@ -1,40 +1,44 @@
 # Name: Daniel Aguilar
-# Prog Purpose: This program display a tax bill for personal property vehicles in Charlottesville.
+# Program Purpose: This program uses lists to find the personal property tax  for vehicles in Charlottesville
+#   and produces a report which displays all data and the total tax value
+#
+# Personal property tax in Charlottesville:
 #   TAX_RATE: $4.20 per $100 of vehicle value (4.20% per year) 
-# Note: Paid every 6 months, so bill should be for 6 months, not for the entire year.   
+#   --- Paid every 6 months
+# Personal Property Tax Relief (PPTR):
+#   --- Eligibility: Owned or leased vehicles which are predominately used for non-bussiness purposes & have passenger license plates
 #   PP_TAX_RELIEF: 33%
 
 import datetime
 
 ##############  define global variables  ############
 # define tax rate 
-TAX_RATE = 0.042
-TAX_RELIEF = 0.33
+PPT_RATE = 0.042
+RELIEF_RATE = 0.33
 
-# define global variables
-assessed_value = 0
-pers_vehicle = 0
-tax_rate = 0
-tax_relief = 0
-tax_due = 0
-annual_tax = 0
-full_tax = 0
-total_tax = 0
+############## create list data ################
+vehicle = ["2019 Volvo ",
+           "2018 Toyota",
+           "2022 Kia   ",
+           "2020 Ford  ",
+           "2023 Honda ",
+           "2019 Lexus ",]
 
-############## define program functions ################
+vehicle_value = [13000, 10200, 17000, 21000, 28000, 16700]
+
+pptr_eligible = ["Y", "Y", "N", "Y", "N", "Y", ]
+
+owner_name = ["Brand, Debra      ",
+              "Smith, Carter     ",
+              "Johnson, Bradley  ",
+              "Garcia, Jeniffer  ", 
+
+
+############# define program functions #############
+
 def main():
-
-    more = True
-
-    while more:
-        get_user_data()
         perform_calculations()
         display_results()
-            
-        askAgain = input("\nWould you like to process another vehicle (Y or N): ")
-        if askAgain.upper() == "N" :
-            more = False
-            print('Thank you, have a good day!')
 
 def get_user_data():
     global pers_vehicle, assessed_value
