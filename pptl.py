@@ -11,7 +11,8 @@
 
 import datetime
 
-############### define tax rate ################
+##############  define global variables  ############
+# define tax rate 
 PPT_RATE = 0.042
 RELIEF_RATE = 0.33
 
@@ -31,13 +32,7 @@ owner_name = ["Brand, Debra      ",
               "Smith, Carter     ",
               "Johnson, Bradley  ",
               "Garcia, Jeniffer  ", 
-              "Henderson, Leticia",
-              "White, Danielle   ",]
-ppt_owed = []
 
-num_vehicles = len(vehicle)
-tax_due = 0
-total = 0
 
 ############# define program functions #############
 
@@ -45,38 +40,38 @@ def main():
         perform_calculations()
         display_results()
 
+def get_user_data():
+    global pers_vehicle, assessed_value
+    assessed_value = int(input("What is the assessed value of the vehicle: "))
+    pers_vehicle = input("Is this a personal Vehicle (Y or N): ")
+
 def perform_calculations():
-    global total
-    for i in range(num_vehicles):
-        tax_due = (vehicle_value[i] * PPT_RATE) / 2
+    global assessed_value, pers_vehicle, tax_rate, tax_relief, tax_due, annual_tax, full_tax
+    annual_tax = assessed_value * TAX_RATE
+    full_tax = annual_tax / 2
 
-        if pptr_eligible[i].upper() == "Y":
-        tax_due = tax_due
+    if pers_vehicle.upper() == "Y":
+        tax_relief = full_tax * TAX_RELIEF
+    else :  
+        tax_relief = 0
 
-        ppt_owed.append(tax_due)
-
-        total = total + tax_due
+    tax_due = full_tax - tax_relief
+    total_tax = tax_due
 
 def display_results():
     
-    moneyformat = '8,.2f'
-    line = '--------------------------------------------'
-    tab = "\t"
-
+    moneyformat = '11,.2f'
+    line = '------------------------------'
     print(line)
-    print('**** PERSONAL PROPERTY TAX REPORT ****')
-    print("       Charlottesville Virginia ")
-
-    print("\n\t\tRUN DATE TIME: " + str(datetime.datetime.now()))
-    print("\nNAME" + tab + tab + tab + "VEHICLE" + tab + tab + "VALUE" + tab + tab + "RELIEF" + tab +"  TAX DUE")
+    print('**** City of Charlottesville ****')
+    print('--- Personal Property Tax ---')
     print(line)
+    print('Assessed Value   $ ' + format(assessed_value, moneyformat))
+    print('Full Tax Amount  $ ' + format(full_tax, moneyformat))
+    print('Relief           $ ' + format(tax_relief, moneyformat))
+    print('Tax Due by Dec 5 $ ' + format(tax_due, moneyformat))
+    print()
+    print(str(datetime.datetime.now()))
 
-    for i in range(num_vehicles):
-        dataline1 = owner_name[i]+ tab + vehicle[i] + tab + format(vehicle_value[i], moneyformat) + tab
-        dataline2 = pptr_eligible[i] + tab + format(ppt_owed[i], moneyformat)
-        print(dataline1 +dataline2)
-
-    print(line)
-    print("*************************** TOTAL TAX DUE: " + tab + format(total, moneyformat))
-
+########## call on main program to execute ############
 main()
