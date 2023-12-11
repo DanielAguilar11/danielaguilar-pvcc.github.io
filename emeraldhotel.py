@@ -7,43 +7,30 @@
 
 import datetime
 
-############## Lists of Data #################
-
-
-##############  define global variables ############
-# define tax rate and prices
-
-
-# define global variables
+########## Variables ######
 num_nights = 0
-single_cost = 0
-double_cost = 0
-suite_cost = 0
-
-subtotal = 0
-sales_tax = 0
-occupancy_tax = 0
-total = 0
-grand_total = 0
-
-guest = []
 
 ############## TUPLES of constants ############
 #          s-tax  occ-tax 
 # indexes    0      1      
-TAX_RATE = (.065, .1125)
+TAX_RATES = (.065, .1125)
 
 #            sr   dr    su
 # indexes    0    1     2   
-ROOM_RATE = (195, 250, 350)
+ROOM_RATES = (195, 250, 350)
 
 # create file variables
 infile = 'emerald.csv' 
-outfile = 'hotelsalesrep.html'
+outfile = 'emerald-web-page.html'
+
+guest = []
 
 ##############  define program functions ################
 def main():
     read_in_data_file()
+    perform_calculations()
+    open_out_file()
+    create_output_html()
 
 def read_in_data_file():   
     guest_data = open(infile, "r")
@@ -53,58 +40,82 @@ def read_in_data_file():
     for i in guest_in:
         guest.append(i.split(","))
     
-def open_outfile():
+def perform_calculations():
+    global grandtotal
+    grandtotal=0
+    
+    for i in range(len(guest)):
+            room_type = str(guest[i][2])
+            num_nights = int(guest[i][3])
+
+            if room_type =="SR":
+                subtotal = ROOM_RATES[0] * num_nights
+#STUDENTS: COMPLETE THESE elif AND else statements
+            elif room_type =="DR":
+                subtotal = ROOM_RATES[1] * num_nights
+
+            else:
+                subtotal = ROOM_RATES[2] * num_nights
+                
+#STUDENTS: COMPLETE THESE CALCULATIONS
+            salestax  = subtotal * TAX_RATES[0]
+            occupancy = subtotal * TAX_RATES[1]
+            total     = subtotal + salestax + occupancy
+             
+            grandtotal += total
+        
+#STUDENTS: ADD THE REST OF THE append statements after this one       
+            guest[i].append(subtotal)
+            guest[i].append(salestax)
+            guest[i].append(occupancy)
+            guest[i].append(total)           
+            
+def open_out_file():
     global f
     f = open(outfile, 'w')
     f.write('<html> <head> <title> Emerald Beach Hotel & Resort </title>\n')
     f.write('<style> td{text-align: right} </style> </head>\n')
-    f.write('<body style ="background-color: #985b45; background-image: url(wp-cinema.png); color: #f8dd61;">\n')
+    f.write('<body style ="background-color: #985b45; background-image: url(wb-emerald.png); color: #f8dd61;">\n')
+
+def create_output_html():
+    global f
     
-def get_user_data():
-    global num_tickets,num_popcorn, num_drinks
-    num_tickets = int(input('Number of movie tickets: '))
-    num_popcorn = int(input('Number of buckets of popcorn: '))
-    num_drinks =  int(input('Number of drinks: '))    
-
-def perform_calculations():
-    global cost_tickets, cost_popcorn, cost_drinks, subtotal, sales_tax, total
-    cost_tickets = num_tickets * PR_TICKET
-    cost_popcorn= num_popcorn * PR_POPCORN
-    cost_drinks = num_drinks * PR_DRINK
-
-    subtotal = cost_tickets + cost_popcorn + cost_drinks
-    sales_tax = subtotal * SALES_TAX_RATE
-    total = subtotal + sales_tax
-
-def display_results():
     currency = '8,.2f'
     today = str(datetime.datetime.now())
     day_time = today[0:16]
+    td = "\t"
 
     tr = '<tr><td>'
-    endtd = '</td><td>'
+    td = '</td><td>'
     endtr = '</td></tr>\n'
     sp = " "
 
-    f.write('\n<table border="3"   style ="background-color: #47161a;  font-family: arial; margin: auto;">\n')            
-    f.write('<tr><td colspan = 3>\n')
-    f.write('<h2>CINEMA HOUSE MOVIES</h2></td></tr>')
-    f.write('<tr><td colspan = 3>\n')
-    f.write('*** Your neighborhood movie house ***\n')
+ #STUDENTS: INSERT ALL THE MISSING f.write STATEMENTS HERE
     
-    f.write(tr + 'Tickets' + endtd + str(num_tickets) + endtd + format(cost_tickets,currency) + endtr)
-    f.write(tr + 'Popcorn' + endtd + str(num_popcorn) + endtd + format(cost_popcorn,currency) + endtr)
-    f.write(tr + 'Drinks ' + endtd + str(num_drinks) + endtd +  format(cost_drinks,currency)  + endtr)
-
-    f.write(tr + 'Subtotal' +  endtd + sp + endtd + format(subtotal,currency)  + endtr)     
-    f.write(tr + 'Sales Tax' + endtd + sp + endtd + format(sales_tax,currency) + endtr)
-    f.write(tr + 'TOTAL' +     endtd + sp + endtd + format(total,currency) + endtr)
+    f.write('\n<table border="3"   style ="background-color: #006600;  font-family: arial; margin: auto;">\n')            
+    f.write('<tr><td colspan = 7>\n')
+    f.write('<h2>Emerald Beach Hotel & Resort</h2></td></tr>')
+    titles1 = tr + "\nLast Name" + td + "First Name" + td + "Room Type" + td + "# Nights" + td + "Subtotal" + td + "Sales Tax" + td + "Occ. Tax" + td + "Total" + endtr 
+    f.write(titles1)
+    for i in range(len(guest)):
+        f.write(tr + format(guest[i][0])+ td)
+        f.write(format(guest[i][1])+ td)        
+        f.write(format(guest[i][2])+ td)
+        f.write(format(guest[i][3])+ td)
+        f.write(format(guest[i][4], currency)+ td)
+        f.write(format(guest[i][5], currency)+ td)
+        f.write(format(guest[i][6], currency)+ td)
+        f.write(format(guest[i][7], currency)+ '</td></tr>')
+                        
+ 
+    titles2 = '<tr><td colspan = 7>' + "\nGrand Total " + td
+    f.write(titles2)
+    f.write( format(grandtotal, currency))
+    f.write('</table><br />')
+    f.write("</body></html>")
+    f.close()
+    print('Open ' + outfile + ' to view data.')
     
-    f.write('<tr><td colspan= "3">Date/Time: ')
-    f.write(day_time)
-    f.write(endtr)
-    f.write('</table>')
-
 
 ##########  call on main program to execute ############
 main()              
