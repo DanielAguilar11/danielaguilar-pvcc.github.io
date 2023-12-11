@@ -75,7 +75,7 @@ def open_out_file():
     f = open(outfile, 'w')
     f.write('<html> <head> <title> Emerald Beach Hotel & Resort </title>\n')
     f.write('<style> td{text-align: right} </style> </head>\n')
-    f.write('<body style ="background-color: #985b45; background-image: url(wb-emerald.png); color: #f8dd61;">\n')
+    f.write('<body style ="background-color: #985b45; background-image: url(wb-emerald.png); color: #1568D7;">\n')
 
 def create_output_html():
     global f
@@ -92,7 +92,7 @@ def create_output_html():
 
  #STUDENTS: INSERT ALL THE MISSING f.write STATEMENTS HERE
     
-    f.write('\n<table border="3"   style ="background-color: #006600;  font-family: arial; margin: auto;">\n')            
+    f.write('\n<table border="3"   style ="background-color: #56F9E6;  font-family: arial; margin: auto; text-align:center;">\n')            
     f.write('<tr><td colspan = 8>\n')
     f.write('<h2>Emerald Beach Hotel & Resort</h2></td></tr>')
     titles1 = tr + "\nLast Name" + td + "First Name" + td + "Room Type" + td + "# Nights" + td + "Subtotal" + td + "Sales Tax" + td + "Occ. Tax" + td + "Total" + endtr 
@@ -108,7 +108,7 @@ def create_output_html():
         f.write(format(guest[i][7], currency)+ '</td></tr>')
                         
  
-    titles2 = '<tr><td colspan = 8>' + "\nGrand Total " + td
+    titles2 = '<tr><td colspan = 7>' + "\nGrand Total " + td
     f.write(titles2)
     f.write( format(grandtotal, currency))
     f.write('</table><br />')
@@ -118,6 +118,4 @@ def create_output_html():
     
 
 ##########  call on main program to execute ############
-main()              
-
-
+main()
