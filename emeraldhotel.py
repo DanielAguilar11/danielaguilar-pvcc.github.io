@@ -93,7 +93,7 @@ def create_output_html():
  #STUDENTS: INSERT ALL THE MISSING f.write STATEMENTS HERE
     
     f.write('\n<table border="3"   style ="background-color: #006600;  font-family: arial; margin: auto;">\n')            
-    f.write('<tr><td colspan = 7>\n')
+    f.write('<tr><td colspan = 8>\n')
     f.write('<h2>Emerald Beach Hotel & Resort</h2></td></tr>')
     titles1 = tr + "\nLast Name" + td + "First Name" + td + "Room Type" + td + "# Nights" + td + "Subtotal" + td + "Sales Tax" + td + "Occ. Tax" + td + "Total" + endtr 
     f.write(titles1)
@@ -108,7 +108,7 @@ def create_output_html():
         f.write(format(guest[i][7], currency)+ '</td></tr>')
                         
  
-    titles2 = '<tr><td colspan = 7>' + "\nGrand Total " + td
+    titles2 = '<tr><td colspan = 8>' + "\nGrand Total " + td
     f.write(titles2)
     f.write( format(grandtotal, currency))
     f.write('</table><br />')
